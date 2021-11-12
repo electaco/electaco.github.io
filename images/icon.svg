@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256mm"
+   height="256mm"
+   viewBox="0 0 256 256"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="C:\Users\Mikael\Documents\Projects\Eelctron\test1\icon.png"
+   inkscape:export-xdpi="50.799999"
+   inkscape:export-ydpi="50.799999"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="electaco icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="256mm"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="257.16373"
+     inkscape:cy="560.61693"
+     inkscape:window-width="3840"
+     inkscape:window-height="2066"
+     inkscape:window-x="2869"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient882">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop878" />
+      <stop
+         style="stop-color:#ffeb7d;stop-opacity:1"
+         offset="1"
+         id="stop880" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient882"
+       id="radialGradient886"
+       cx="127.40722"
+       cy="127.57732"
+       fx="127.40722"
+       fy="127.57732"
+       r="126.4366"
+       gradientTransform="matrix(1,0,0,1.0013454,0,-0.17163968)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:url(#radialGradient886);stroke:#000000;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+       id="path846"
+       cx="127.40722"
+       cy="127.57732"
+       rx="126.3866"
+       ry="126.5567" />
+    <path
+       sodipodi:type="spiral"
+       style="fill:none;fill-rule:evenodd;stroke:#ecd00f;stroke-width:13.9325;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path911"
+       sodipodi:cx="479.61035"
+       sodipodi:cy="477.03873"
+       sodipodi:expansion="1"
+       sodipodi:revolution="3"
+       sodipodi:radius="484.79626"
+       sodipodi:argument="-17.292021"
+       sodipodi:t0="0"
+       d="m 479.61035,477.03873 c 0.32233,24.30477 -32.60333,12.42561 -40.39613,0.53573 -21.11804,-32.22084 8.15881,-70.95048 39.32467,-81.32801 55.74841,-18.56296 110.22351,25.95156 122.25987,79.18508 C 618.4626,553.55386 556.98182,625.62516 481.75328,638.62327 381.48547,655.94771 291.32054,576.93727 277.62967,479.71739 260.40111,357.37609 357.18108,248.91208 476.39595,234.66191 620.78114,217.40305 747.65006,332.0756 762.38331,473.2886 779.74593,639.70323 647.10947,785.03918 483.89621,800.20782 295.46005,817.72061 131.61732,667.07524 116.04512,481.86032 98.351,271.40736 267.03549,89.030824 474.25302,73.077362 706.71978,55.179989 907.64936,241.92488 923.96785,471.14567 942.08447,725.62419 737.26364,945.12103 486.03914,961.79236"
+       transform="matrix(0.27845422,0,0,0.26694922,-12.831735,-4.9648368)" />
+  </g>
+</svg>
