@@ -1,0 +1,22 @@
+<style>
+@media screen and (min-width: 1292px) {
+    .myToc {
+        position: fixed;
+        width: 250px;
+        padding-right: 4%;
+        right: 0;
+        top: 70px;
+    }
+}
+
+@media screen and (min-width: 1492px) {
+    .myToc {
+        padding-right: 4%;
+    }
+}
+</style>
+
+<div class="myToc">
+    <h3>Content</h3>
+    {{ .Page.TableOfContents }}
+</div>

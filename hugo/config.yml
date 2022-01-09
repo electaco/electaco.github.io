@@ -1,0 +1,9 @@
+baseURL: http://example.org/
+languageCode: en-us
+title: Electaco
+#theme: ananke
+theme: PaperMod
+menu:
+  main:
+   - url: /howtos
+     name: How-to's
