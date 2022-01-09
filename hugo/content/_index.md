@@ -41,18 +41,10 @@ If you want to upload your marker packs there, give me a shout
 
 ### Video markes
 
-The overlay support video markers, but it's a bit rough at the moment. 
-You can change a position marker to a video marker in the Markers UI, and you then have the option to fill inn the video details.
-The video also sometimes freeze if it's very quick marker updates, and only way to get it working again is to restart the overlay
+The overlay support video markers, including HLS streaming video. For info about creating your own video markers, have a look at the [Video Markers]({{< relref "howtos/video_markers" >}}) details page.
 
 I have provided an example marker pack with two videos, which can be used to test the functionality and as a template for setting up a video marker yourself.
 You can find it [here](https://elec.k.thelazy.net/markers/6)
-
-### HLS Source
-
-The video stream also support HLS source, you need to link to the m3u8 playlist, and the type needs to be "application/x-mpegURL".
-
-The easiest way I found to set up a server was to use Docker with [this image](https://github.com/JasonRivers/Docker-nginx-rtmp) and using [ffmpeg](https://ottverse.com/rtmp-streaming-using-ffmpeg-tutorial/) for streaming. [This](https://obsproject.com/forum/resources/rtmp-hls-stream-within-docker.368/) might also be an alternative.
 
 ## Why?
 

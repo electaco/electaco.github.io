@@ -2,6 +2,7 @@
 title: "Ipfs"
 date: 2022-01-08T16:04:58+01:00
 draft: false
+hideOnList: true
 ---
 
 [IPFS](https://ipfs.io/) or InterPlanetary File System is a distributed file system that can be used for hosting videos for a video marker. It has the advantage of being pretty straight forward to use and requires very little setup. 

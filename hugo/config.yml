@@ -7,3 +7,7 @@ menu:
   main:
    - url: /howtos
      name: How-to's
+params:
+  assets:
+   favicon: favicon.svg
+   faviconType: image/svg+xml
