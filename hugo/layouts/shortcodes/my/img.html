@@ -1,0 +1,3 @@
+{{ $imagePath := printf "images/%s" .Params.src }}
+{{- $image := resources.Get $imagePath -}}
+<img src="{{ $image.RelPermalink }}"/>

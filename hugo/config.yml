@@ -1,0 +1,13 @@
+baseURL: http://example.org/
+languageCode: en-us
+title: Electaco
+#theme: ananke
+theme: PaperMod
+menu:
+  main:
+   - url: /howtos
+     name: How-to's
+params:
+  assets:
+   favicon: favicon.svg
+   faviconType: image/svg+xml
