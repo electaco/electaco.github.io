@@ -1,12 +1,12 @@
 ---
-title: "Steaming video"
+title: "Streaming video"
 date: 2022-01-08T12:16:40+01:00
 draft: false
 ---
 
-# Steaming Video Setup
+# Streaming Video Setup
 
-This explains setting up a HLS service, playing video via it, and how to set that up in Electaco.
+This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.
 
 Please note that due to the technology involved, there is often a 10-20 second delay on the stream.
 
@@ -15,7 +15,7 @@ Please note that due to the technology involved, there is often a 10-20 second d
 {{< my/toc >}}
 
 ## Short overview
-The video stream also support playing video from a [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) source. For this you need to link to the m3u8 playlist, and the type needs to be "application/x-mpegURL".
+The video marker also support playing video from a [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) source. For this you need to link to the m3u8 playlist, and the type needs to be "application/x-mpegURL".
 
 The easiest way I found to set up a server was to use [Docker](https://www.docker.com/get-started) with [this image](https://github.com/JasonRivers/Docker-nginx-rtmp) and using [ffmpeg](https://ottverse.com/rtmp-streaming-using-ffmpeg-tutorial/) for streaming. 
 
@@ -88,21 +88,21 @@ This will start up a HLS streaming server at port 8080, and an RTMP service on 1
 
 * mystream:
     * RTMP: rtmp://localhost/live/mystream
-    * Web: http://localhost/hls/mystream.m3u8
+    * Web: http://localhost:8080/hls/mystream.m3u8
 * testing:
     * RTMP: rtmp://localhost/live/testing
-    * Web: http://localhost/hls/testing.m3u8    
+    * Web: http://localhost:8080/hls/testing.m3u8    
 
 For this to be accessible to others, you'll need:
 
 1. Set up port forwarding to port 8080 on your machine
-2. Use external network address
+2. Use external network address instead of "localhost" in the url set in markers
 
 Setting this up varies with your network setup and hardware, and is outside of the scope of this guide
 
 ### Using stream with a video marker
 
 When the stream is set up and working, set the video url on the Video marker to 
-"http://\<network address>/hls/<stream key>.m3u8" and the Type to "application/x-mpegURL"
+`http(s)://<network address>/hls/<stream key>.m3u8` and the Type to `application/x-mpegURL`
 
 The video should start playing shortly

@@ -4,8 +4,6 @@ date: 2022-01-08T12:17:53+01:00
 draft: false
 ---
 
-
-
 # Video marker
 
 ## Creating a video marker
