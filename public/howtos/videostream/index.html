@@ -3,10 +3,10 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Steaming video | Electaco</title>
+<title>Streaming video | Electaco</title>
 <meta name=keywords content>
-<meta name=description content="Steaming Video Setup
-This explains setting up a HLS service, playing video via it, and how to set that up in Electaco.
+<meta name=description content="Streaming Video Setup
+This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.
 Please note that due to the technology involved, there is often a 10-20 second delay on the stream.">
 <meta name=author content>
 <link rel=canonical href=https://electaco.github.io/howtos/videostream/>
@@ -21,21 +21,21 @@ Please note that due to the technology involved, there is often a 10-20 second d
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript><meta property="og:title" content="Steaming video">
-<meta property="og:description" content="Steaming Video Setup
-This explains setting up a HLS service, playing video via it, and how to set that up in Electaco.
+</noscript><meta property="og:title" content="Streaming video">
+<meta property="og:description" content="Streaming Video Setup
+This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.
 Please note that due to the technology involved, there is often a 10-20 second delay on the stream.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://electaco.github.io/howtos/videostream/"><meta property="article:section" content="howtos">
 <meta property="article:published_time" content="2022-01-08T12:16:40+01:00">
 <meta property="article:modified_time" content="2022-01-08T12:16:40+01:00">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Steaming video">
-<meta name=twitter:description content="Steaming Video Setup
-This explains setting up a HLS service, playing video via it, and how to set that up in Electaco.
+<meta name=twitter:title content="Streaming video">
+<meta name=twitter:description content="Streaming Video Setup
+This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.
 Please note that due to the technology involved, there is often a 10-20 second delay on the stream.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Howtos","item":"https://electaco.github.io/howtos/"},{"@type":"ListItem","position":2,"name":"Steaming video","item":"https://electaco.github.io/howtos/videostream/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Steaming video","name":"Steaming video","description":"Steaming Video Setup This explains setting up a HLS service, playing video via it, and how to set that up in Electaco.\nPlease note that due to the technology involved, there is often a 10-20 second delay on the stream.\n","keywords":[],"articleBody":"Steaming Video Setup This explains setting up a HLS service, playing video via it, and how to set that up in Electaco.\nPlease note that due to the technology involved, there is often a 10-20 second delay on the stream.\nContent\r Short overview  Quickstart   Details  Video Source - RTMP Streaming Server Using stream with a video marker    \r\r\r@media screen and (min-width: 1292px) {\r.myToc {\rposition: fixed;\rwidth: 250px;\rpadding-right: 4%;\rright: 0;\rtop: 70px;\r}\r}\r@media screen and (min-width: 1492px) {\r.myToc {\rwidth: 300px;\r}\r}\r@media screen and (min-width: 1892px) {\r.myToc {\rpadding-right: 8%;\rwidth: 500px;\r}\r}\r Short overview The video stream also support playing video from a HLS source. For this you need to link to the m3u8 playlist, and the type needs to be “application/x-mpegURL”.\nThe easiest way I found to set up a server was to use Docker with this image and using ffmpeg for streaming.\nThis OBS solution might also be an alternative.\nQuickstart Tools You need these tools installed:\n Docker - a system for running pre-packaged services Python - A programming language runtime  Steps When those two are installed, you can then:\n  Download this zip file - it contains setup file for running the HLS service in docker, and a simple python script for streaming video files via ffmpeg\n  Open up a commmand line in the directory you unpacked the files to\n  Run the command docker-compose up -d to start downloading the service image and starting it up\n The service defaults to two RTMP streams: “mystream” and “testing” When running it has a web service at http://localhost:8080/ where you can open the streams    To start a stream, run the command py stream.py  and shortly after the video should start playing on the web page listed above\n Default target is “mystream”, you can change to the testing screen by adding “–key testing” to the command    In Electaco, set the video url to http://localhost/hls/mystream.m3u8 and the Type to application/x-mpegURL\n  To make this available from other machines, you need to set up port forwarding and use external address in the marker url\n  Details Video Source - RTMP First of all you need a video source that’s capable of sending the video in RTMP format.\nFFmpeg FFmpeg is an all-in-one command line video tool that - among other things - support reencoding a video and sending it via RTMP.\nFFmpeg have a lot of options for re-encoding and scaling video, and can do just about anything you’d want if you spend enough time tinkering with it, but for a quick start, you can do something like this:\nffmpeg -re -i  -vcodec libx264 -vprofile baseline -g 30 -acodec aac -strict -2 -f flv rtmp://  For more information about FFmpeg and using it, the FFmpeg Recepies page is a good start.\nOBS Studio OBS Studio is a tool for screencasting and streaming desktop / games. It supports RTMP protocol\nTo use it, set the Stream server service to custom, and put in the RTMP link in “Server” and key in “Stream key”.\nStreaming Server While RTMP is excellent for streaming to few targets, it’s less suited for many audiences and it’s not well supported by web tools\nFor Electaco to read the live stream, it has to be converted to HLS format.\nThe easiest way to get running is via Docker, a software for running pre-packaged services. With Docker installed, you only need to run this command to get a stream server running:\ndocker run -p 1935:1935 -p 8080:8080 jasonrivers/nginx-rtmp  This will start up a HLS streaming server at port 8080, and an RTMP service on 1935 (default RTMP port). It will have these two streams:\n mystream:  RTMP: rtmp://localhost/live/mystream Web: http://localhost/hls/mystream.m3u8   testing:  RTMP: rtmp://localhost/live/testing Web: http://localhost/hls/testing.m3u8    For this to be accessible to others, you’ll need:\n Set up port forwarding to port 8080 on your machine Use external network address  Setting this up varies with your network setup and hardware, and is outside of the scope of this guide\nUsing stream with a video marker When the stream is set up and working, set the video url on the Video marker to “http:///hls/.m3u8” and the Type to “application/x-mpegURL”\nThe video should start playing shortly\n","wordCount":"701","inLanguage":"en","datePublished":"2022-01-08T12:16:40+01:00","dateModified":"2022-01-08T12:16:40+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://electaco.github.io/howtos/videostream/"},"publisher":{"@type":"Organization","name":"Electaco","logo":{"@type":"ImageObject","url":"https://electaco.github.io/favicon.svg"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Howtos","item":"https://electaco.github.io/howtos/"},{"@type":"ListItem","position":2,"name":"Streaming video","item":"https://electaco.github.io/howtos/videostream/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Streaming video","name":"Streaming video","description":"Streaming Video Setup This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.\nPlease note that due to the technology involved, there is often a 10-20 second delay on the stream.\n","keywords":[],"articleBody":"Streaming Video Setup This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.\nPlease note that due to the technology involved, there is often a 10-20 second delay on the stream.\nContent\r Short overview  Quickstart   Details  Video Source - RTMP Streaming Server Using stream with a video marker    \r\r\r@media screen and (min-width: 1292px) {\r.myToc {\rposition: fixed;\rwidth: 250px;\rpadding-right: 4%;\rright: 0;\rtop: 70px;\r}\r}\r@media screen and (min-width: 1492px) {\r.myToc {\rwidth: 300px;\r}\r}\r@media screen and (min-width: 1892px) {\r.myToc {\rpadding-right: 8%;\rwidth: 500px;\r}\r}\r Short overview The video marker also support playing video from a HLS source. For this you need to link to the m3u8 playlist, and the type needs to be “application/x-mpegURL”.\nThe easiest way I found to set up a server was to use Docker with this image and using ffmpeg for streaming.\nThis OBS solution might also be an alternative.\nQuickstart Tools You need these tools installed:\n Docker - a system for running pre-packaged services Python - A programming language runtime  Steps When those two are installed, you can then:\n  Download this zip file - it contains setup file for running the HLS service in docker, and a simple python script for streaming video files via ffmpeg\n  Open up a commmand line in the directory you unpacked the files to\n  Run the command docker-compose up -d to start downloading the service image and starting it up\n The service defaults to two RTMP streams: “mystream” and “testing” When running it has a web service at http://localhost:8080/ where you can open the streams    To start a stream, run the command py stream.py  and shortly after the video should start playing on the web page listed above\n Default target is “mystream”, you can change to the testing screen by adding “–key testing” to the command    In Electaco, set the video url to http://localhost/hls/mystream.m3u8 and the Type to application/x-mpegURL\n  To make this available from other machines, you need to set up port forwarding and use external address in the marker url\n  Details Video Source - RTMP First of all you need a video source that’s capable of sending the video in RTMP format.\nFFmpeg FFmpeg is an all-in-one command line video tool that - among other things - support reencoding a video and sending it via RTMP.\nFFmpeg have a lot of options for re-encoding and scaling video, and can do just about anything you’d want if you spend enough time tinkering with it, but for a quick start, you can do something like this:\nffmpeg -re -i  -vcodec libx264 -vprofile baseline -g 30 -acodec aac -strict -2 -f flv rtmp://  For more information about FFmpeg and using it, the FFmpeg Recepies page is a good start.\nOBS Studio OBS Studio is a tool for screencasting and streaming desktop / games. It supports RTMP protocol\nTo use it, set the Stream server service to custom, and put in the RTMP link in “Server” and key in “Stream key”.\nStreaming Server While RTMP is excellent for streaming to few targets, it’s less suited for many audiences and it’s not well supported by web tools\nFor Electaco to read the live stream, it has to be converted to HLS format.\nThe easiest way to get running is via Docker, a software for running pre-packaged services. With Docker installed, you only need to run this command to get a stream server running:\ndocker run -p 1935:1935 -p 8080:8080 jasonrivers/nginx-rtmp  This will start up a HLS streaming server at port 8080, and an RTMP service on 1935 (default RTMP port). It will have these two streams:\n mystream:  RTMP: rtmp://localhost/live/mystream Web: http://localhost:8080/hls/mystream.m3u8   testing:  RTMP: rtmp://localhost/live/testing Web: http://localhost:8080/hls/testing.m3u8    For this to be accessible to others, you’ll need:\n Set up port forwarding to port 8080 on your machine Use external network address instead of “localhost” in the url set in markers  Setting this up varies with your network setup and hardware, and is outside of the scope of this guide\nUsing stream with a video marker When the stream is set up and working, set the video url on the Video marker to http(s):///hls/.m3u8 and the Type to application/x-mpegURL\nThe video should start playing shortly\n","wordCount":"711","inLanguage":"en","datePublished":"2022-01-08T12:16:40+01:00","dateModified":"2022-01-08T12:16:40+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://electaco.github.io/howtos/videostream/"},"publisher":{"@type":"Organization","name":"Electaco","logo":{"@type":"ImageObject","url":"https://electaco.github.io/favicon.svg"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -61,13 +61,13 @@ Please note that due to the technology involved, there is often a 10-20 second d
 <article class=post-single>
 <header class=post-header>
 <h1 class=post-title>
-Steaming video
+Streaming video
 </h1>
 <div class=post-meta><span title="2022-01-08 12:16:40 +0100 CET">January 8, 2022</span>
 </div>
 </header>
-<div class=post-content><h1 id=steaming-video-setup>Steaming Video Setup<a hidden class=anchor aria-hidden=true href=#steaming-video-setup>#</a></h1>
-<p>This explains setting up a HLS service, playing video via it, and how to set that up in Electaco.</p>
+<div class=post-content><h1 id=streaming-video-setup>Streaming Video Setup<a hidden class=anchor aria-hidden=true href=#streaming-video-setup>#</a></h1>
+<p>This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.</p>
 <p>Please note that due to the technology involved, there is often a 10-20 second delay on the stream.</p>
 <div class=myToc>
 <h3>Content</h3>
@@ -90,7 +90,7 @@ Steaming video
 </div>
 <style>@media screen and (min-width:1292px){.myToc{position:fixed;width:250px;padding-right:4%;right:0;top:70px}}@media screen and (min-width:1492px){.myToc{width:300px}}@media screen and (min-width:1892px){.myToc{padding-right:8%;width:500px}}</style>
 <h2 id=short-overview>Short overview<a hidden class=anchor aria-hidden=true href=#short-overview>#</a></h2>
-<p>The video stream also support playing video from a <a href=https://en.wikipedia.org/wiki/HTTP_Live_Streaming>HLS</a> source. For this you need to link to the m3u8 playlist, and the type needs to be &ldquo;application/x-mpegURL&rdquo;.</p>
+<p>The video marker also support playing video from a <a href=https://en.wikipedia.org/wiki/HTTP_Live_Streaming>HLS</a> source. For this you need to link to the m3u8 playlist, and the type needs to be &ldquo;application/x-mpegURL&rdquo;.</p>
 <p>The easiest way I found to set up a server was to use <a href=https://www.docker.com/get-started>Docker</a> with <a href=https://github.com/JasonRivers/Docker-nginx-rtmp>this image</a> and using <a href=https://ottverse.com/rtmp-streaming-using-ffmpeg-tutorial/>ffmpeg</a> for streaming.</p>
 <p><a href=https://obsproject.com/forum/resources/rtmp-hls-stream-within-docker.368/>This OBS solution</a> might also be an alternative.</p>
 <h3 id=quickstart>Quickstart<a hidden class=anchor aria-hidden=true href=#quickstart>#</a></h3>
@@ -157,25 +157,25 @@ With Docker installed, you only need to run this command to get a stream server 
 <li>mystream:
 <ul>
 <li>RTMP: rtmp://localhost/live/mystream</li>
-<li>Web: http://localhost/hls/mystream.m3u8</li>
+<li>Web: http://localhost:8080/hls/mystream.m3u8</li>
 </ul>
 </li>
 <li>testing:
 <ul>
 <li>RTMP: rtmp://localhost/live/testing</li>
-<li>Web: http://localhost/hls/testing.m3u8</li>
+<li>Web: http://localhost:8080/hls/testing.m3u8</li>
 </ul>
 </li>
 </ul>
 <p>For this to be accessible to others, you&rsquo;ll need:</p>
 <ol>
 <li>Set up port forwarding to port 8080 on your machine</li>
-<li>Use external network address</li>
+<li>Use external network address instead of &ldquo;localhost&rdquo; in the url set in markers</li>
 </ol>
 <p>Setting this up varies with your network setup and hardware, and is outside of the scope of this guide</p>
 <h3 id=using-stream-with-a-video-marker>Using stream with a video marker<a hidden class=anchor aria-hidden=true href=#using-stream-with-a-video-marker>#</a></h3>
 <p>When the stream is set up and working, set the video url on the Video marker to
-&ldquo;http://&lt;network address>/hls/.m3u8&rdquo; and the Type to &ldquo;application/x-mpegURL&rdquo;</p>
+<code>http(s)://&lt;network address>/hls/&lt;stream key>.m3u8</code> and the Type to <code>application/x-mpegURL</code></p>
 <p>The video should start playing shortly</p>
 </div>
 <footer class=post-footer>
