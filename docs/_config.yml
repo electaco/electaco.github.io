@@ -33,6 +33,7 @@ github_username:  electaco
 #theme: just-the-docs
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
