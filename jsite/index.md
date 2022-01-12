@@ -6,9 +6,12 @@ layout: home
 nav_order: 1
 ---
 # Electaco
+{: .no_toc }
+
 
 Overlay for Guild Wars 2
 
+{% include toc.html %}
 ## Description
 
 This is an overlay for Guild Wars 2. It draws position-relevant data "into" the game world.

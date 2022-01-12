@@ -6,7 +6,9 @@ parent: "Video Markers"
 ---
 
 # Video marker
+{: .no_toc }
 
+{% include toc.html %}
 ## Creating a video marker
 
 Here we'll show the steps needed to create a video marker in Electaco.

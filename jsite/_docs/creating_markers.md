@@ -4,6 +4,9 @@ nav_order: 1
 ---
 
 # Creating markers
+{: .no_toc }
+
+{% include toc.html %}
 
 ## Opening Markers window
 
@@ -26,7 +29,7 @@ The four icons on the right of the marker window are:
 
 All markers belong to a marker pack, so the first step is to create a marker pack to have the markers in. 
 
-To create a marker pack, click on the "New markerpack" icon in the Markers window:
+To create a marker pack, click on the *"New markerpack"* icon in the Markers window:
 
 ![New marker pack]({% link assets/images/markers/markers1.jpg %})
 
@@ -48,7 +51,7 @@ The icons on the right side are :
 3. Change marker icon color
 4. Delete marker group
 
-Under the title you have description, which can be edited in the same way as the title, and on the right "Export marker group to file" icon.
+Under the title you have description, which can be edited in the same way as the title, and on the right *"Export marker group to file"* icon.
 
 ## Adding a marker
 
@@ -58,8 +61,45 @@ Under the title you have description, which can be edited in the same way as the
 
 ### Editing a marker
 
+You can click on the + on the right side of the marker to open it's options:
+
 ![New marker]({% link assets/images/markers/markers4_2.jpg %})
 
-### Delete a marker
+There you can adjust the position of the marker, set a description, transform the marker into a video marker 
+or even delete it! 
+
+In the future there'll likely be more options available here.
 
 ## Share markers
+
+When you've made a set of markers, you might want to share them with others, or just save it in an external file
+
+### Saving a marker group
+
+To save a marker group, expand it via the + sign at the left of the name, then click the *"Save Marker Group to File"* icon:
+
+![Save markers]({% link assets/images/markers/markers5_0.jpg %})
+
+This will open up a save file dialog, and you can save the markers to a file. You can then share that file with others
+
+### Loading a marker group
+
+For loading a marker group from a file it should be enough to just double click it in Windows. 
+
+If for some reason that doesn't work there is an *"Load marker group from file"* icon in the 
+Markers window that will let you pick a file to import markers from.
+
+![Load markers]({% link assets/images/markers/markers5_1.jpg %})
+
+### Sharing via in-overlay search
+
+There is an online marker pack search built into the overlay that can be opened via this icon:
+
+![Load markers]({% link assets/images/markers/markers5_2.jpg %})
+
+That search is connected to [elec.k.thelazy.net/markers](https://elec.k.thelazy.net/markers/), and can import packs from there directly.
+
+Packs published there should have a narrow focus and only do one thing. For example one jumping puzzle, one collection, and so on.
+They should be quick to load, only have one purpose, and should aim to be discarded when not needed any more.
+
+Please contact Terrasque on [Discord](https://discord.gg/fNKWAPtJ9Z) if you're interested in publishing marker packs there.

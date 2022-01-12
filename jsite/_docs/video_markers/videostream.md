@@ -5,13 +5,16 @@ parent: "Video Markers"
 ---
 
 # Streaming Video Setup
+{: .no_toc }
 
 This explains setting up a HLS service, streaming video via it, and how to set that up in Electaco.
 
 Please note that due to the technology involved, there is often a 10-20 second delay on the stream.
 
+
+{% include toc.html %}
 ## Short overview
-The video marker also support playing video from a [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) source. For this you need to link to the m3u8 playlist, and the type needs to be "application/x-mpegURL".
+The video marker also support playing video from a [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) source. For this you need to link to the m3u8 playlist, and the type needs to be `application/x-mpegURL`.
 
 The easiest way I found to set up a server was to use [Docker](https://www.docker.com/get-started) with [this image](https://github.com/JasonRivers/Docker-nginx-rtmp) and using [ffmpeg](https://ottverse.com/rtmp-streaming-using-ffmpeg-tutorial/) for streaming. 
 
@@ -35,10 +38,10 @@ a simple python script for streaming video files via ffmpeg
 2. Open up a commmand line in the directory you unpacked the files to
 
 3. Run the command `docker-compose up -d` to start downloading the service image and starting it up
-    * The service defaults to two RTMP streams: "mystream" and "testing"
+    * The service defaults to two RTMP streams: *"mystream"* and *"testing"*
     * When running it has a web service at [http://localhost:8080/](http://localhost:8080/) where you can open the streams
 4. To start a stream, run the command `py stream.py <path-to-video-file>` and shortly after the video should start playing on the web page listed above
-    * Default target is "mystream", you can change to the testing screen by adding "--key testing" to the command
+    * Default target is *"mystream"*, you can change to the testing screen by adding *"--key testing"* to the command
 
 5. In Electaco, set the video url to `http://localhost/hls/mystream.m3u8` and the Type to `application/x-mpegURL`
 
@@ -67,7 +70,7 @@ For more information about FFmpeg and using it, the [FFmpeg Recepies](https://ot
 
 [OBS Studio](https://obsproject.com/) is a tool for screencasting and streaming desktop / games. It supports RTMP protocol
 
-To use it, set the Stream server service to custom, and put in the RTMP link in "Server" and key in "Stream key".
+To use it, set the Stream server service to custom, and put in the RTMP link in *"Server"* and key in *"Stream key"*.
 
 ### Streaming Server
 
@@ -81,14 +84,14 @@ With Docker installed, you only need to run this command to get a stream server 
 
     docker run -p 1935:1935 -p 8080:8080 jasonrivers/nginx-rtmp
 
-This will start up a HLS streaming server at port 8080, and an RTMP service on 1935 (default RTMP port). It will have these two streams:
+This will start up a HLS streaming server at port 8080, and an RTMP service on 1935 *(default RTMP port)*. It will have these two streams:
 
 * mystream:
-    * RTMP: rtmp://localhost/live/mystream
-    * Web: http://localhost:8080/hls/mystream.m3u8
+    * RTMP: `rtmp://localhost/live/mystream`
+    * Web: `http://localhost:8080/hls/mystream.m3u8`
 * testing:
-    * RTMP: rtmp://localhost/live/testing
-    * Web: http://localhost:8080/hls/testing.m3u8    
+    * RTMP: `rtmp://localhost/live/testing`
+    * Web: `http://localhost:8080/hls/testing.m3u8`
 
 For this to be accessible to others, you'll need:
 
