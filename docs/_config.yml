@@ -30,7 +30,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  electaco
 
 # Build settings
-theme: just-the-docs
+#theme: just-the-docs
 plugins:
   - jekyll-feed
 
@@ -82,3 +82,5 @@ just_the_docs:
     docs:
       # Give the collection a name
       name: Documentation
+
+remote_theme: pmarsceill/just-the-docs
