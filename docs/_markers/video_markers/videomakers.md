@@ -72,13 +72,13 @@ almost all hosting providers should be suitable.
 
 IPFS works with Electaco, but you need to use an Origin enabled gateway. [Public Gateway Checker](https://ipfs.github.io/public-gateway-checker/) has a list of gatweays, and also has Origin info.
 
-You can read more about IPFS and Electaco at [this page]({% link _docs/video_markers/ipfs.md %})
+You can read more about IPFS and Electaco at [this page]({% link _markers/video_markers/ipfs.md %})
 
 ## Streaming Video
 
 Electaco also support streaming video from a HLS source.
 
-[Video Streaming]({% link _docs/video_markers/videostream.md %})
+[Video Streaming]({% link _markers/video_markers/videostream.md %})
 
 ## Troubleshooting
 

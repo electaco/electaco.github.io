@@ -39,7 +39,7 @@ If you want to upload your marker packs there, give me a shout
 ### Video markes
 
 The overlay support video markers, including HLS streaming video. For info about creating your own video markers, have a look at the 
-[Video Markers]({% link _docs/video_markers/index.md %}) details page.
+[Video Markers]({% link _markers/video_markers/index.md %}) details page.
 
 I have provided an example marker pack with two videos, which can be used to test the functionality and as a template for setting up a video marker yourself.
 You can find it [here](https://elec.k.thelazy.net/markers/6)

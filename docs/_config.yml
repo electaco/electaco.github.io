@@ -63,14 +63,14 @@ defaults:
     values:
       image: true
   - scope:
-      type: "docs"
+      type: "markers"
       path: ""
     values:
       layout: page
       
 
 collections:
-  docs:
+  markers:
     permalink: "/:collection/:path/"
     output: true
 
@@ -78,8 +78,8 @@ just_the_docs:
   # Define which collections are used in just-the-docs
   collections:
     # Reference the "docs" collection
-    docs:
+    markers:
       # Give the collection a name
-      name: Documentation
+      name: Markers
 
 remote_theme: pmarsceill/just-the-docs
