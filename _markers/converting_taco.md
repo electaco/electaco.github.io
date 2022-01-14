@@ -30,7 +30,7 @@ When it comes to POIs there are generally two types. One is named poi's and the 
 
 Each POI has a type, that's connected to it's MarkerCategory. For unnamed POI's the type is the MarkerCategory names up to that option in MarkerCategory hierarchy.
 
-### Example 1 - Unnamed POIs - Sky Crystals
+### Example 1: Unnamed POIs - Sky Crystals
 
 Here is the MarkerCategory info for Sky Crystals:
 ![markercategory]({% link assets/images/converting/xml1.jpg %})
@@ -42,7 +42,7 @@ And here is the connected POIs:
 
 The path for the Sky Crystals group is then `tw_guides.tw_festival_fourwinds.tw_festival_fourwinds_skycrystals_skycrystal`
 
-### Example 2 - Named POIs - Auric Basin Hero Points
+### Example 2: Named POIs - Auric Basin Hero Points
 
 Here is the MarkerCategory info for Auric Basin Hero Points:
 ![markercategory]({% link assets/images/converting/poi_named_category.jpg %})

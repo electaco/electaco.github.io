@@ -7,33 +7,33 @@ parent: "Video Markers"
 
  InterPlanetary File System or [IPFS](https://ipfs.io/) is a distributed file system that can be used for hosting videos for a video marker. It has the advantage of being pretty straight forward to use and requires very little setup. 
 
-## Quickstart
+# Quickstart
 
-### Set up
+## Firtst time set up
 
-First you need to install IPFS, then for links it generates to work with Electaco you need to go to Settings and change "Public Gateway" to `https://dweb.link`
+First you need to install [IPFS](https://ipfs.io/), then for links it generates to work with Electaco you need to go to Settings and change "Public Gateway" to `https://dweb.link`
 
 ![gateway]({% link assets/images/video_markers/ipfs/public_gateway.jpg %})
 
-### Uploading a video file
+## Using a video file via IPFS
 
-When you got a video file you want to use in a marker, 
+When you got a video file you want to use in a marker, you can just upload it to your node, get the shareable link, and use that link for your video marker. 
 
-First, import it to your node
+### Import it to your node
 
 ![gateway]({% link assets/images/video_markers/ipfs/import-file.jpg %})
 
-Then, get the shareable link
+### Get the shareable link
 
 ![sharelink]({% link assets/images/video_markers/ipfs/share-link.jpg %})
 
-Lastly, use that URL for the marker:
+### Use that URL for the marker
 
 ![markerurl]({% link assets/images/video_markers/ipfs/marker-url.jpg %})
 
 And the video should start playing shortly.
 
-## More details
+# More details
 
 IPFS works by you running a node on your machine, and upload files to that node. If someone else tries to access it, their node will first figure out who has the file and then contact that node and download it, temporarily storing it on their local node. If a third person then open the file, it will use it's local copy to help the third one get the file. 
 
