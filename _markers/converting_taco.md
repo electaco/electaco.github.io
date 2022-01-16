@@ -5,6 +5,7 @@ nav_order: 10
 
 # Converting from TACO marker packs
 
+This section is a bit technical, but it gives the basic tools to convert markers from TaCO marker packs to Electaco format.
 ## Converter script
 
 In the installation folder of Electaco there is a small python script called `convert_from_taco.py` that will do most of the heavy lifting.
