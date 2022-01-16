@@ -26,7 +26,7 @@ For the moment this is used to draw markers for various things, and to put in vi
 {% include youtube.html title="Early marker footage" id="fcdlP7xbfnY" %}
 {% include youtube.html title="Video marker example" id="r649AJ6S1EU" %}
 
-## Releases
+## Releases / Download
 
 You can find the latest release at [https://github.com/electaco/overlay/releases](https://github.com/electaco/overlay/releases)
 
