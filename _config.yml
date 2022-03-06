@@ -83,3 +83,5 @@ just_the_docs:
       name: Markers
 
 remote_theme: pmarsceill/just-the-docs
+ga_tracking: G-F9KTT8EN4Z
+ga_tracking_anonymize_ip: true
